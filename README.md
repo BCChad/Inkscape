@@ -1,4 +1,4 @@
-# Inkscape extension for Raster2Laser
+# Modified 305 Engineering Inkscape extension for Raster2Laser
 
  - Raster 2 Laser GCode generator
  - 
