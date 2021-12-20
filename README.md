@@ -12,7 +12,10 @@
 - Added function to include G00 feedrate
 - Added function to include G04 DWELL command for pre- and post-burn
 - Added function for grayscale images to scale "S" intensity to the effective range of the laser - (problem - small values of S that do not "print" are scaled up; high values of S that cause excessive scorching are scaled down)
-- Modified the .INX file to use PAGES because of the additional parameters I added.
+- Coming soon:  Modified the .INX file to use PAGES because of the additional parameters I added.
+- Coming soon:  Allow raster lines to go in "Y" direction instead of "X"
+- Coming soon:  Update to be compatible with Inkscape V1.0
+- 
 - Updated many comment lines from Italian to English for my purposes - Apologies to the original author
 - Much respect to the "Beer License" of the original author - I enjoy beer, but also Espresso!
 
