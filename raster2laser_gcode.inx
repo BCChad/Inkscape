@@ -16,7 +16,7 @@
 	
 	<!-- Titolo e descrizione -->
 	<param name="Title" type="description">Raster 2 Laser GCode generator</param>
-	<param name="Description" type="description">created by 305 Engineering</param>
+	<param name="Description" type="description">Chad's Mod of 305 Engineering Excellent Code</param>
     
 	<!-- Opzioni di esportazione dell'immagine -->
 	<param name="directory" type="string"  gui-text="Export directory"></param>
@@ -31,6 +31,8 @@
 	<param name="resolution" type="enum" gui-text="Resolution">
 		<_item value="1">1 pixel/mm</_item>
 		<_item value="2">2 pixel/mm</_item>
+		<_item value="3">3 pixel/mm</_item>
+		<_item value="4">4 pixel/mm</_item>
 		<_item value="5">5 pixel/mm</_item>
 		<_item value="10">10 pixel/mm</_item>
 	</param>
@@ -69,9 +71,18 @@
 	</param>	
 
 	
-	<!-- Velocità Nero e spostamento -->
-	<param name="speed_ON" type="int" min="1" max="5000" gui-text="Engraving speed">200</param>
-	
+	<!-- Feed rates   Laser OFF  G00    ON  G01-->
+	<param name="speed_OFF" type="int" min="1" max="5000" gui-text="Travel speed">500</param> 
+    <param name="speed_ON" type="int" min="1" max="5000" gui-text="Engraving speed">200</param>
+
+	<!-- Dwell times   G4 Pxxx   -->
+	<param name="dwell_ON" type="int" min="1" max="5000" gui-text="Pre-etch Dwell">400</param> 
+    <param name="dwell_OFF" type="int" min="1" max="5000" gui-text="Post-etch Dwell">100</param>
+
+	<!-- Laser Grayscale Scaling Thresholds   -->
+	<param name="thLO" type="int" min="0" max="254" gui-text="Min. Effective S(laser)">25</param>
+    <param name="thHI" type="int" min="1" max="255" gui-text="Max. Effective S(laser)">250</param>
+
 	<!-- FLIP = coordinate Cartesiane (False) Coordinate "informatiche" (True) -->
 	<param name="flip_y" type="boolean" gui-text="Flip Y">false</param>
 
@@ -84,18 +95,19 @@
 	
 	<param name="laseron" type="string"  gui-text="Laser ON Command">M03</param>
 	<param name="laseroff" type="string"  gui-text="Laser OFF Command">M05</param>
+    <param name="p1_only" type="description">Include fixed Sxxxx parameter for B/W engraving</param>
 	
-	<!-- Anteprima = Solo immagine BN -->
+    <!-- Anteprima = Solo immagine BN -->
 	<param name="preview_only" type="boolean" gui-text="Preview only">false</param>
 	<param name="p_only" type="description">If "Preview only" is true the gcode file will not be generated.</param>
 
 
-	<!-- Per togliere la casella Antepima diretta bisogna sostituire <effect> con <effect needs-live-preview="false">  -->
+	<!-- to remove the direct preview box you have to replace <effect> with <effect needs-live-preview="false">  -->
 	<!-- <effect> -->
 	<!-- 	<effect needs-live-preview="false"> -->
 	<effect needs-live-preview="false"> 
         <object-type>all</object-type>
-		<!-- Dove comparirà lo script all'interno del menù estensioni -->
+		<!-- Where the script will appear in the extensions menu -->
 		<!--  " Estensioni => 305 Engineering => prova_estensione " -->
         <effects-menu>
             <submenu name="305 Engineering"/>
